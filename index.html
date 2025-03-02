@@ -31,14 +31,32 @@
     <title>Live Character Count</title>
 </head>
 
-<body class="bg-[#f4f7ff] font-poppins py-5">
+<body class="bg-[#f4f7ff] font-poppins py-5 h-screen flex items-center justify-center">
 
-
-
-
+    <div>
+        <h4 class="text-3xl font-semibold text-center mb-6">Word Count: <span id="count">0</span></h4>
+        <textarea cols="80" rows="10" class="resize-none px-4 py-3" id="text"></textarea>
+    </div>
     <script>
-        
+        const textarea = document.getElementById('text');
+        const count = document.getElementById('count');
+        // textarea.addEventListener('keyup', (event) => {
+        //     const word = textarea.value.trim().split(' ');
+        //     const wordCount = [];
+        //     for (const value of word) {
+        //         if (word.includes(' ') || word.includes('')) {
+        //             continue;
+        //         } else {
+        //             wordCount.push(value);
+        //         }
+        //     }
+        //     count.textContent = wordCount.length;
+        // })
+        textarea.addEventListener('keyup', () => {
+            const words = textarea.value.trim().split(/\s+/);
+            count.textContent = textarea.value.trim() ? words.length : 0;
+        });
     </script>
 </body>
+
 </html>
-    
